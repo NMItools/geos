@@ -19,21 +19,21 @@
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-group expanded="1" name="NIVOS" checked="Qt::Checked">
+    <layer-tree-group expanded="1" name="NIVOS" checked="Qt::Unchecked">
       <customproperties/>
-      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=Point disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;VODOMERI&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="VODOMERI" checked="Qt::Unchecked" id="VODOMERI_ab8fb0d3_a623_4d22_b79e_735f9328f288">
+      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=Point disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;VODOMERI&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="VODOMERI" checked="Qt::Checked" id="VODOMERI_ab8fb0d3_a623_4d22_b79e_735f9328f288">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;INTERNI_CEVOVOD&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="INTERNI_CEVOVOD" checked="Qt::Unchecked" id="INTERNI_CEVOVOD_a1819a88_8975_4074_8245_bdf30c617107">
+      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;INTERNI_CEVOVOD&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="INTERNI_CEVOVOD" checked="Qt::Checked" id="INTERNI_CEVOVOD_a1819a88_8975_4074_8245_bdf30c617107">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;PRIKLJUCCI&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="PRIKLJUCCI" checked="Qt::Unchecked" id="PRIKLJUCCI_a8bef434_f9ee_49dd_9894_4140b95955e8">
+      <layer-tree-layer expanded="1" source="dbname='GIS' host=VERDI user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;PRIKLJUCCI&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="PRIKLJUCCI" checked="Qt::Checked" id="PRIKLJUCCI_a8bef434_f9ee_49dd_9894_4140b95955e8">
         <customproperties/>
       </layer-tree-layer>
       <layer-tree-layer expanded="1" source="dbname='GIS' host=verdi user='nebojsa' estimatedmetadata=true srid=31277 type=LineString table=&quot;MAPINFO&quot;.&quot;CEVOVOD&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="CEVOVOD" checked="Qt::Checked" id="CEVOVOD20180703220439056">
         <customproperties/>
       </layer-tree-layer>
-      <layer-tree-layer expanded="1" source="dbname='GIS' host=verdi user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;FEKALNA&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="FEKALNA" checked="Qt::Unchecked" id="FEKALNA_0f31ff3b_8899_4af7_b2ba_254025fc8da9">
+      <layer-tree-layer expanded="1" source="dbname='GIS' host=verdi user='nebojsa' srid=31277 type=LineString disableInvalidGeometryHandling='0' table=&quot;MAPINFO&quot;.&quot;FEKALNA&quot; (SP_GEOMETRY) sql=" providerKey="mssql" name="FEKALNA" checked="Qt::Checked" id="FEKALNA_0f31ff3b_8899_4af7_b2ba_254025fc8da9">
         <customproperties/>
       </layer-tree-layer>
     </layer-tree-group>
@@ -86,7 +86,7 @@
     </layer-tree-group>
     <layer-tree-group expanded="1" name="Python Download" checked="Qt::Checked">
       <customproperties/>
-      <layer-tree-layer expanded="0" source="dbname='geosrbija' host=VERDI port=5432 user='postgres' sslmode=disable key='mi_prinx' srid=32634 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;gs_bbox_grid&quot; (sp_geometry) sql=" providerKey="postgres" name="gs_bbox_grid" checked="Qt::Unchecked" id="gs_bbox_grid20180703220355727">
+      <layer-tree-layer expanded="0" source="dbname='geosrbija' host=VERDI port=5432 user='postgres' sslmode=disable key='mi_prinx' srid=32634 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;gs_bbox_grid&quot; (sp_geometry) sql=" providerKey="postgres" name="gs_bbox_grid" checked="Qt::Checked" id="gs_bbox_grid20180703220355727">
         <customproperties>
           <property value="0" key="showFeatureCount"/>
         </customproperties>
@@ -117,7 +117,7 @@
       </layer-tree-layer>
       <layer-tree-group expanded="1" name="OF" checked="Qt::Checked">
         <customproperties/>
-        <layer-tree-layer expanded="0" source="dbname='geosrbija' host=VERDI port=5432 user='postgres' sslmode=disable key='mi_prinx' srid=32634 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;gs_bbox_grid&quot; (sp_geometry) sql=" providerKey="postgres" name="of_2013_10cm" checked="Qt::Checked" id="of_2013_40cm_copy20180704213612502">
+        <layer-tree-layer expanded="0" source="dbname='geosrbija' host=VERDI port=5432 user='postgres' sslmode=disable key='mi_prinx' srid=32634 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;gs_bbox_grid&quot; (sp_geometry) sql=" providerKey="postgres" name="of_2013_10cm" checked="Qt::Unchecked" id="of_2013_40cm_copy20180704213612502">
           <customproperties/>
         </layer-tree-layer>
         <layer-tree-layer expanded="0" source="dbname='geosrbija' host=VERDI port=5432 user='postgres' sslmode=disable key='mi_prinx' srid=32634 type=Polygon checkPrimaryKeyUnicity='1' table=&quot;public&quot;.&quot;gs_bbox_grid&quot; (sp_geometry) sql=" providerKey="postgres" name="of_2010_10cm" checked="Qt::Unchecked" id="of_2013_10cm_copy20180704213729717">
@@ -192,10 +192,10 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>meters</units>
     <extent>
-      <xmin>574222.32152234064415097</xmin>
-      <ymin>4796044.94352181348949671</ymin>
-      <xmax>576115.04042354458943009</xmax>
-      <ymax>4797937.71242931578308344</ymax>
+      <xmin>558139.69255708809942007</xmin>
+      <ymin>4758605.49917842354625463</ymin>
+      <xmax>618706.69739560643211007</xmax>
+      <ymax>4819174.10421861242502928</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -215,28 +215,28 @@
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendgroup open="true" name="NIVOS" checked="Qt::Checked">
-      <legendlayer open="true" name="VODOMERI" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
+    <legendgroup open="true" name="NIVOS" checked="Qt::Unchecked">
+      <legendlayer open="true" name="VODOMERI" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="true" hidden="false">
           <legendlayerfile isInOverview="0" visible="0" layerid="VODOMERI_ab8fb0d3_a623_4d22_b79e_735f9328f288"/>
         </filegroup>
       </legendlayer>
-      <legendlayer open="true" name="INTERNI_CEVOVOD" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
+      <legendlayer open="true" name="INTERNI_CEVOVOD" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="true" hidden="false">
           <legendlayerfile isInOverview="0" visible="0" layerid="INTERNI_CEVOVOD_a1819a88_8975_4074_8245_bdf30c617107"/>
         </filegroup>
       </legendlayer>
-      <legendlayer open="true" name="PRIKLJUCCI" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
+      <legendlayer open="true" name="PRIKLJUCCI" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="true" hidden="false">
           <legendlayerfile isInOverview="0" visible="0" layerid="PRIKLJUCCI_a8bef434_f9ee_49dd_9894_4140b95955e8"/>
         </filegroup>
       </legendlayer>
       <legendlayer open="true" name="CEVOVOD" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="true" hidden="false">
-          <legendlayerfile isInOverview="0" visible="1" layerid="CEVOVOD20180703220439056"/>
+          <legendlayerfile isInOverview="0" visible="0" layerid="CEVOVOD20180703220439056"/>
         </filegroup>
       </legendlayer>
-      <legendlayer open="true" name="FEKALNA" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
+      <legendlayer open="true" name="FEKALNA" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="true" hidden="false">
           <legendlayerfile isInOverview="0" visible="0" layerid="FEKALNA_0f31ff3b_8899_4af7_b2ba_254025fc8da9"/>
         </filegroup>
@@ -306,9 +306,9 @@
       </legendgroup>
     </legendgroup>
     <legendgroup open="true" name="Python Download" checked="Qt::Checked">
-      <legendlayer open="false" name="gs_bbox_grid" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
+      <legendlayer open="false" name="gs_bbox_grid" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
         <filegroup open="false" hidden="false">
-          <legendlayerfile isInOverview="0" visible="0" layerid="gs_bbox_grid20180703220355727"/>
+          <legendlayerfile isInOverview="0" visible="1" layerid="gs_bbox_grid20180703220355727"/>
         </filegroup>
       </legendlayer>
       <legendlayer open="false" name="ko" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
@@ -352,9 +352,9 @@
         </filegroup>
       </legendlayer>
       <legendgroup open="true" name="OF" checked="Qt::Checked">
-        <legendlayer open="false" name="of_2013_10cm" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
+        <legendlayer open="false" name="of_2013_10cm" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">
           <filegroup open="false" hidden="false">
-            <legendlayerfile isInOverview="0" visible="1" layerid="of_2013_40cm_copy20180704213612502"/>
+            <legendlayerfile isInOverview="0" visible="0" layerid="of_2013_40cm_copy20180704213612502"/>
           </filegroup>
         </legendlayer>
         <legendlayer open="false" name="of_2010_10cm" drawingOrder="-1" checked="Qt::Unchecked" showFeatureCount="0">

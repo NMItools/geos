@@ -4,7 +4,7 @@ Preuzimanje podloga sa GeoSrbija portala na osnovu MREŽE KVADRATA u PostGIS
 https://a3.geosrbija.rs
 -------------------------------------------------------------------------------
 
-    verzija:  3.1
+    verzija:  3.2
     datum:    2018-NOVEMBAR-11
     autor: Nebojša Pešić, dipl. građ. ing (nmiTools@gmail.com)
 
@@ -13,7 +13,7 @@ https://a3.geosrbija.rs
     pip install psycopg2
     pip install requests
     pip install clint
-    pip install GDAL-2.3.2-cp37-cp37m-win_amd64.whl
+    pip install GDAL-3.0.1-cp37-cp37m-win_amd64.whl
 
 ===============================================================================
 """
@@ -222,7 +222,7 @@ def gs_url(tip, sloj, bbox):
                   'Accept-Encoding': 'gzip, deflate, br',
                   'Accept-Language': 'en-US,en;q=0.5',
                   'Connection': 'keep-alive',
-                  'Cookie': '_ga=GA1.2.122374505.1511963246',
+                  'Cookie': '_ga=GA1.2.853214968.1516814617',
                   'DNT': '1',
                   'Host': 'ogc.geosrbija.rs',
                   'Referer': 'https://a3.geosrbija.rs/',
@@ -230,14 +230,15 @@ def gs_url(tip, sloj, bbox):
                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; ' +
                   'Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0'
                   }
-        url = kn_base_url + "LAYERS=" + sloj
-        + "&QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"
-        "INFOFORMAT=text%2Fhtml&FORMAT=image%2Fpng&VERSION=1.3.0&"
-        "EXCEPTIONS=XML&GUI=8&SERVICE=WMS&REQUEST=GetMap&STYLES=&"
-        "CRS=EPSG%3A32634&BBOX="
-        + bbox
-        + "&WIDTH=" + str(dW)
-        + "&HEIGHT=" + str(dH)
+        url = (kn_base_url + "LAYERS=" + sloj
+               + "&QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"
+               "INFOFORMAT=text%2Fhtml&FORMAT=image%2Fpng&VERSION=1.3.0&"
+               "EXCEPTIONS=XML&GUI=8&SERVICE=WMS&REQUEST=GetMap&STYLES=&"
+               "CRS=EPSG%3A32634&BBOX="
+               + bbox
+               + "&WIDTH=" + str(dW)
+               + "&HEIGHT=" + str(dH)
+               )
         return url
     elif tip == "of":
         dW = 2048
@@ -259,13 +260,14 @@ def gs_url(tip, sloj, bbox):
                   }
         uuid = "b71f15d1-d478-4794-ad5e-5bc12f39e415"
         key = "20181025112228"
-        url = of_base_url + "uuid=" + uuid + "&key=" + key + "&LAYERS=" + sloj
-        +"&QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"
-        "INFOFORMAT=text%2Fplain&FORMAT=image%2Fpng&VERSION=1.1.1&SERVICE=WMS&"
-        "REQUEST=GetMap&STYLES=&SRS=EPSG%3A32634&BBOX="
-        + bbox
-        + "&WIDTH=" + str(dW)
-        + "&HEIGHT=" + str(dH)
+        url = (of_base_url + "uuid=" + uuid + "&key=" + key + "&LAYERS=" + sloj
+               + "&QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"
+               + "INFOFORMAT=text%2Fplain&FORMAT=image%2Fpng&VERSION=1.1.1&"
+               + "SERVICE=WMS&REQUEST=GetMap&STYLES=&SRS=EPSG%3A32634&BBOX="
+               + bbox
+               + "&WIDTH=" + str(dW)
+               + "&HEIGHT=" + str(dH)
+               )
         return url
 
 
@@ -347,17 +349,17 @@ kolone = {
 # i korigovati  "c < 12" u završnoj petlji - VALJDA NEMA JOŠ NEŠTO :)
 
 gs_slojevi = {
-    # 'of_2010_10cm': ["Orthophoto-10cm_(2007-2010)","of", 0],      # kompletan
-    # 'of_2013_10cm': ["Orthophoto-10cm_(2011-2013)","of", 0],      # kompletan
-    'of_2010_10cm': ["Satelitski_snimci-30cm_2015-2016", "of", 0],  # kompletan
+    'of_2010_10cm': ["Orthophoto-10cm_(2007-2010)", "of", 0],      # kompletan
+    'of_2013_10cm': ["Orthophoto-10cm_(2011-2013)", "of", 1],      # kompletan
+    # 'of_2010_10cm': ["Satelitski_snimci-30cm_2015-2016", "of", 0],# kompletan
     # dodati novu kolonu u PostGIS tabeli i preimenovati ovaj red:
-    'of_2013_10cm': ["Satelitski_snimci-40cm_2015-2016", "of", 0],
+    # 'of_2013_10cm': ["Satelitski_snimci-40cm_2015-2016", "of", 0],
     'of_2010_40cm': ["Orthophoto-40cm_(2007-2010)", "of", 1],
     'of_2013_40cm': ["Orthophoto-40cm_(2011-2013)", "of", 1],
-    'parcele': ["layer_279", "kn", 0],    # 532 PARCELE (ISTOK)
-    'ulice':    ["layer_32", "kn", 0],    # ULICA
-    'objekti': ["layer_280", "kn", 0],    # OBJEKAT
-    'kbr':      ["layer_36", "kn", 0],    # KUĆNI BROJ
+    'parcele': ["layer_532", "kn", 1],    # 532 PARCELE (ISTOK)
+    'ulice':    ["layer_32", "kn", 1],    # ULICA
+    'objekti': ["layer_280", "kn", 1],    # OBJEKAT
+    'kbr':      ["layer_36", "kn", 1],    # KUĆNI BROJ
     'nazivi':   ["layer_54", "kn", 0],    # NAZIVI(DKP)
     'ko':       ["layer_61", "kn", 0],    # KATASTARSKA OPŠTINA
     'naselja':  ["layer_30", "kn", 0],    # NASELJE
