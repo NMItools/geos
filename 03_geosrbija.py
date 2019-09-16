@@ -5,7 +5,7 @@ https://a3.geosrbija.rs
 -------------------------------------------------------------------------------
 
     verzija:  3.2
-    datum:    2018-NOVEMBAR-11
+    datum:    2019-AVGUST-11
     autor: Nebojša Pešić, dipl. građ. ing (nmiTools@gmail.com)
 
  preduslovi:
@@ -13,7 +13,7 @@ https://a3.geosrbija.rs
     pip install psycopg2
     pip install requests
     pip install clint
-    pip install GDAL-3.0.1-cp37-cp37m-win_amd64.whl
+    pip install M:/MEGAsync/Python/whl/GDAL-3.0.1-cp37-cp37m-win_amd64.whl
 
 ===============================================================================
 """
@@ -324,9 +324,9 @@ def img_download(gs_url, path, imgfilename):
     else:
         print("Kvadrat "+imgfilename+" je već preuzet.")
 
-# ====================================================================================================
+# =============================================================================
 # - Preuzimanje svih 'Bounding Box'-ova iz mreže kvadrata koji imaju status "2"
-# ----------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 
 # kolone u PostgreSQL tabeli
