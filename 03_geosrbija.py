@@ -78,6 +78,8 @@ os.system('cls')
 
 print("----------------------------------------------------------------------")
 
+header, uuid, keys, dX, dY, dW, dH = None
+
 # osnovni URL za ortofoto
 of_base_url = "https://a3.geosrbija.rs/proxies/xWmsProxy.ashx?"
 
