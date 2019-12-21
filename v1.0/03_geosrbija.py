@@ -78,7 +78,14 @@ os.system('cls')
 
 print("----------------------------------------------------------------------")
 
-header, uuid, keys, dX, dY, dW, dH = None
+
+header = None
+uuid = None
+keys = None
+dX = None
+dY = None
+dW = None
+dH = None
 
 # osnovni URL za ortofoto
 of_base_url = "https://a3.geosrbija.rs/proxies/xWmsProxy.ashx?"
@@ -220,17 +227,17 @@ def gs_url(tip, sloj, bbox):
         dX = 500
         dY = 500
         # HTTP header za lejere katastra
-        header = {'Accept': '*/*',
+        header = {'Accept': 'image/webp,*/*',
                   'Accept-Encoding': 'gzip, deflate, br',
                   'Accept-Language': 'en-US,en;q=0.5',
                   'Connection': 'keep-alive',
-                  'Cookie': '_ga=GA1.2.853214968.1516814617',
+                  'Cookie': '_ga=GA1.2.122374505.1511963246; _gid=GA1.2.722972071.1571044509',
                   'DNT': '1',
                   'Host': 'ogc.geosrbija.rs',
                   'Referer': 'https://a3.geosrbija.rs/',
                   'TE': 'Trailers',
                   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; ' +
-                  'Win64; x64; rv:63.0) Gecko/20100101 Firefox/63.0'
+                  'Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0'
                   }
         url = (kn_base_url + "LAYERS=" + sloj
                + "&QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"

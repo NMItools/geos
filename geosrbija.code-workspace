@@ -2,12 +2,7 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "C:\\Users\\Nebojsa\\Dropbox\\POSAO\\Ucenje\\Python\\vezba-test\\OWSLib"
-		},
-		{
-			"path": "C:\\Users\\Nebojsa\\Dropbox\\POSAO\\Ucenje\\Python\\vezba-test\\argparse"
 		}
-	]
+	],
+	"settings": {}
 }

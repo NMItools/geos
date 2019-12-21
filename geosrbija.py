@@ -1,8 +1,7 @@
 """
-===============================================================================
-Preuzimanje podloga sa GeoSrbija portala
-https://a3.geosrbija.rs
--------------------------------------------------------------------------------
+==============================================================================
+Preuzimanje podloga sa GeoSrbija portala https://a3.geosrbija.rs
+------------------------------------------------------------------------------
 
     verzija:  2.0
     datum:    2019-OKTOBAR-12
@@ -15,93 +14,173 @@ https://a3.geosrbija.rs
     pip install clint
     pip install M:/MEGAsync/Python/whl/GDAL-3.0.1-cp37-cp37m-win_amd64.whl
 
-===============================================================================
+==============================================================================
 """
 
 import sys
 import os
 import argparse
 
-from gsmreza import genmreza
-from gssetup import ver
+from gssetup import verzija
+from gssetup import slojevi
+from gssql import sql_generator_mreze
+from gssql import sql_kvadrat_id
+from gssql import sql_merge_id
+from gsdownload import img_download
+from gsfiles import gen_wld_file
+from gsfiles import gen_tab_file
+
+from gswms import GeoSrbijaWMS
 
 os.system('cls')
 
 
-def mreža(arguments):
+def mreža(args):
     print(f"Kreiranje mreže koordinatnih kvadrata sa parametrima:")
-    print(f" - px = {arguments.px}")
-    print(f" - py = {arguments.py}")
-    print(f" - kx = {arguments.kx}")
-    print(f" - ky = {arguments.ky}")
-    print(f" - d  = {arguments.d}m")
-    genmreza(arguments.px, arguments.py, arguments.kx, arguments.ky, arguments.d)
+    print(f" - px = {args.px}")
+    print(f" - py = {args.py}")
+    print(f" - kx = {args.kx}")
+    print(f" - ky = {args.ky}")
+    print(f" - d  = {args.d}m")
+    sql_generator_mreze(args.px, args.py,
+                        args.kx, args.ky,
+                        args.d)
 
 
-def kvadrat(arguments):
-    print(f"Preuzimanje kvadrata broj {arguments.id} ...")
+def bbox(args):
+    wmst = GeoSrbijaWMS(args.sloj, args.x, args.y)
+    print(f"Preuzimanje bbox kvadrata [{wmst}]")
+    if img_download(wmst):
+        gen_wld_file(wmst)
+        gen_tab_file(wmst)
+
+
+def id(args):
+    qid = sql_kvadrat_id(args.tabela, args.ID)
+    wmst = GeoSrbijaWMS(args.sloj, qid[0], qid[1])
+    print(f"Preuzimanje kvadrata ID = {args.ID} - [{wmst}]")
+    if img_download(wmst):
+        gen_wld_file(wmst)
+        gen_tab_file(wmst)
+
+
+def ml(args):
+    qmid = sql_merge_id(args.tabela, args.MID)
+    c = 1
+    for id in qmid:
+        qid = sql_kvadrat_id(args.tabela, id)
+        wmst = GeoSrbijaWMS(args.sloj, qid[0], qid[1])
+        print(f"Preuzimanje ML = {args.MID} | {id} ({c}/{len(qmid)})")
+        if img_download(wmst):
+            gen_wld_file(wmst)
+            gen_tab_file(wmst)
+            c += 1
 
 
 if __name__ == "__main__":
 
     # Pokretanje programa i ispis imena i verzije
-    print(80*"=")
-    print(f"GeoSrbija Downloader v{ver}")
-    print(80*"-")
-    
+    print(95*"=")
+    print(f"GeoSrbija Downloader v{verzija}")
+    print(95*"-")
+
     if len(sys.argv) >= 2:
         # top-level parser
         parser = argparse.ArgumentParser(prog='GeoSrbija',
-                                         description="Preuzimanje podloga sa GeoSrbija portala.")
-        
+                                         description="Preuzimanje podloga sa "
+                                                     "GeoSrbija portala. "
+                                                     "\na3.geosrbija.org")
+
         subparsers = parser.add_subparsers()
 
-        # ---------------------------------------------------------------------------------------------------
+        # --------------------------------------------------------------------
         # parser za komandu 'mreža'
 
-        par_kvadrat = subparsers.add_parser('mreža',
-                                            description='Kreiranje mreže koordinatnih kvadrata (EPSG:32634).')
-        par_kvadrat.add_argument('px',
-                                 type=int,
-                                 help='Početna X koordinata')
-        par_kvadrat.add_argument('py',
-                                 type=int,
-                                 help='Početna Y koordinata')
-        par_kvadrat.add_argument('kx',
-                                 type=int,
-                                 help='Krajnja X koordinata')
-        par_kvadrat.add_argument('ky',
-                                 type=int,
-                                 help='Krajnja Y koordinata')
-        par_kvadrat.add_argument('-d',
-                                 type=int,
-                                 default=500,
-                                 help='Dužina stranice kvadrata u metrima')
-        par_kvadrat.set_defaults(func=mreža)
+        par_mreza = subparsers.add_parser('mreža',
+                                          description="Kreiranje mreže "
+                                          "koordinatnih kvadrata"
+                                          "(EPSG:32634)."
+                                          )
+        par_mreza.add_argument('px',
+                               type=int,
+                               help='Početna X koordinata')
+        par_mreza.add_argument('py',
+                               type=int,
+                               help='Početna Y koordinata')
+        par_mreza.add_argument('kx',
+                               type=int,
+                               help='Krajnja X koordinata')
+        par_mreza.add_argument('ky',
+                               type=int,
+                               help='Krajnja Y koordinata')
+        par_mreza.add_argument('-d',
+                               type=int,
+                               default=500,
+                               help='Dužina stranice kvadrata u metrima')
+        par_mreza.set_defaults(func=mreža)
 
-        # ---------------------------------------------------------------------------------------------------
-        # parser za komandu 'kvadrat'
+        # --------------------------------------------------------------------
+        # parser za komandu 'bbox'
 
-        par_kvadrat = subparsers.add_parser('kvadrat',
-                                            description='Preuzimanje numerisanog kvadrata iz mreže podloga.')
-        par_kvadrat.add_argument('id',
-                                 type=int,
-                                 help=' ID broj kvadrata u mreži')
-        par_kvadrat.set_defaults(func=kvadrat)
+        par_bbox = subparsers.add_parser('bbox',
+                                         description="Preuzimanje "
+                                                     " kvadrata na osnovu"
+                                                     " koordinate donjeg"
+                                                     " levog ugla.")
+        par_bbox.add_argument('sloj',
+                              choices=slojevi,
+                              help='tip sloja na GeoSrbija')
+        par_bbox.add_argument('x',
+                              type=int,
+                              help='donja leva X koordinata kvadrata')
+        par_bbox.add_argument('y',
+                              type=int,
+                              help='donja leva Y koordinata kvadrata')
+        par_bbox.set_defaults(func=bbox)
 
-        # ---------------------------------------------------------------------------------------------------
+        # --------------------------------------------------------------------
+        # parser za komandu 'id'
+        par_id = subparsers.add_parser('id',
+                                       description="Preuzimanje "
+                                                   " kvadrata na osnovu"
+                                                   " njegovog ID u "
+                                                   " mreži.")
+        par_id.add_argument('tabela',
+                            type=str,
+                            help='ime tabele u bazi za mrežu')
+        par_id.add_argument('ID',
+                            type=int,
+                            help='ID kvadrata u mreži')
+        par_id.add_argument('sloj',
+                            choices=slojevi,
+                            help='tip sloja na GeoSrbija')
+        par_id.set_defaults(func=id)
 
-        # ---------------------------------------------------------------------------------------------------
+        # --------------------------------------------------------------------
+        # parser za komandu 'ml'
+        par_ml = subparsers.add_parser('ml',
+                                       description="Preuzimanje "
+                                                   " metakvadrata na osnovu"
+                                                   " njegovog broja u "
+                                                   " mreži.")
+        par_ml.add_argument('tabela',
+                            type=str,
+                            help='ime tabele u bazi za mrežu')
+        par_ml.add_argument('MID',
+                            type=int,
+                            help='ID metakvadrata u mreži')
+        par_ml.add_argument('sloj',
+                            choices=slojevi,
+                            help='tip sloja na GeoSrbija')
+        par_ml.set_defaults(func=ml)
 
-        arguments = parser.parse_args()
-        arguments.func(arguments)
+        args = parser.parse_args()
+        args.func(args)
 
     else:
 
         print("Niste naveli nijedan komandni parametar.\n"
               "Za pomoć otkucajte 'python geosrbija.py -h'")
-
-
 
 
 """
@@ -110,6 +189,7 @@ if __name__ == "__main__":
 # staY = 4785000
 # endY = 4787500
 
+--------------------------------------------------------------------------------
 python geosrbija.py mreža 568500, 4785000, 573500, 4787500
 
 ================================================================================
@@ -122,8 +202,13 @@ Kreiranje mreže koordinatnih kvadrata sa parametrima:
  - ky = 4787500
  - d  = 500m
 Generisano je 50 kvadrata!
- """
-    
 
+-------------------------------------------------------------------------------------------
+python geosrbija.py bbox of_2013_40cm, 569000, 4790500
+python geosrbija.py bbox test 569000, 4790500
 
-    
+python geosrbija.py id gs_bbox_grid 23 parcele
+
+python geosrbija.py ml gs_bbox_grid 10 parcele
+python geosrbija.py ml gs_bbox_grid 10 objekti
+"""

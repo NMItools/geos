@@ -1,2 +1,6 @@
 .vscode
 .pycache
+__pycache__/gsmreza.cpython-37.pyc
+__pycache__/gssetup.cpython-37.pyc
+__pycache__/gsfiles.cpython-37.pyc
+__pycache__/gswms.cpython-37.pyc
