@@ -16,7 +16,7 @@ from gssetup import gs_slojevi
 class GeoSrbijaWMS:
     """Kreiranje WMS URL za GeoSrbija"""
 
-    def __init__(self, sloj, px, py, w=dw, h=dh):
+    def __init__(self, sloj, px, py, w=dw, h=dh, xm=dx, ym=dy):
         self.sloj = sloj
         self.px = px
         self.py = py
@@ -24,6 +24,8 @@ class GeoSrbijaWMS:
         self.ky = py + dy
         self.w = w
         self.h = h
+        self.xm = xm
+        self.ym = ym
         self.bbox = (
                      str(px) + "," +
                      str(py) + "," +
@@ -109,4 +111,5 @@ class GeoSrbijaWMS:
 
     @property
     def filename(self):
+        # return f"{self.sloj}_{self.px}_{self.py}_{self.w}px_{dx}m"
         return f"{self.sloj}_{self.px}_{self.py}"

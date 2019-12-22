@@ -53,11 +53,43 @@
 # ============================================================================
 """
 
-from datetime import datetime
+# import sys
+import psycopg2
 from psycopg2 import sql
-from gssetup import connection
-from gssetup import cursor
-from gssetup import table_name
+from datetime import datetime
+
+server = 'localhost'
+# server = 'VERDI'
+baza = 'geosrbija'
+user = 'postgres'
+password = 'softdesk'
+table_name = 'gs_bbox_grid'
+
+try:
+    # PostgreSQL konekcija - kućni server vs jkp "Naissus
+    connection = psycopg2.connect(
+        dbname=baza,
+        user=user,
+        host=server,
+        password=password
+        )
+    cursor = connection.cursor()
+except psycopg2.OperationalError as e:
+    print(95*"=")
+    print(95*"-")
+    print(f"{e}")
+    print(95*"-")
+    db_status = (f" - Konekcija sa bazom nije moguća!\n"
+                 f"   Da li je server '{server}' dostupan?\n"
+                 f"   Funkcije za rad sa bazom podataka neće biti dostupne.")
+    # sys.exit(1)
+else:
+    db_status = f"Konekcija sa serverom '{server}' uspostavljena!"
+
+
+def sql_tabela():
+    """Kreiranje tabele [gs_bbox_grid]"""
+    pass
 
 
 def sql_insert_kvadrat(id_kvad, bbox_kvad, datum, dl, min_x, min_y, max_x,
@@ -178,22 +210,3 @@ def sql_merge_id(table, id):
 
     kvads = [row[0] for row in sql_result]
     return kvads
-
-
-"""
-from gssetup import table_name
-from gssetup import connection
-from gssetup import cursor
-from gssql import sql_merge_id
-
-from gssql import sql_kvadrat_id
-
-table_name
-'gs_bbox_grid'
-
-sql_kvadrat_id(table_name, 532)
-(22, 0, 558000, 4793000)
-
-sql_merge_id(table_name, 10)
-
-"""

@@ -1,0 +1,17 @@
+-- ======================================================================================================================================
+-- RESTORE bekapovane tabele iz plain SQL
+--------------------------------------------------------------------------------------------------------------------------------------
+CMD
+> psql -U postgres -d geosrbija -1 -f "D:\git\GeoSrbija\_radni\db_backup\gs_bbox_grid.sql"
+
+POWERSHELL
+
+PS D:\postgres94\bin>.\psql -U postgres -d geosrbija -1 -f "D:\git\GeoSrbija\_radni\db_backup\gs_bbox_grid.sql"
+
+https://stackoverflow.com/questions/20427689/psql-invalid-command-n-while-restore-sql/24681090
+
+-- ======================================================================================================================================
+-- RESTORE bekapovane tabele iz custom backup
+
+pgadminIII
+baza/restore...

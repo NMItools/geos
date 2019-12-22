@@ -4,6 +4,7 @@ from gswms import GeoSrbijaWMS
 
 class TestGeoSrbijaWMS(unittest.TestCase):
     """ Test metoda GeoSrbijaWMS klase:
+        - attributi (unos podataka)
         - URL (http)
         - header (http)
         - tip (kn ili of)
@@ -15,19 +16,31 @@ class TestGeoSrbijaWMS(unittest.TestCase):
     def setUp(self):
         self.gswms = GeoSrbijaWMS('parcele', 569000, 4790500)
 
+    def test_attributes(self):
+        self.assertEqual('parcele', self.gswms.sloj)
+        self.assertEqual(569000, self.gswms.px)
+        self.assertEqual(4790500, self.gswms.py)
+        self.assertEqual(569500, self.gswms.kx)
+        self.assertEqual(4791000, self.gswms.ky)
+        self.assertEqual(5120, self.gswms.w)
+        self.assertEqual(5120, self.gswms.h)
+        self.assertEqual(500, self.gswms.xm)
+        self.assertEqual(500, self.gswms.ym)
+        self.assertEqual('569000,4790500,569500,4791000', self.gswms.bbox)
+
     def test_url_generation_method(self):
         url_test = (
-                    "https://ogc.geosrbija.rs/mapserv.ashx?"
-                    "LAYERS=layer_532&QUERYABLE=false&TRANSITIONEFFECT=resize&"
-                    "TRANSPARENT=TRUE&INFOFORMAT=text%2Fhtml&"
-                    "FORMAT=image%2Fpng&VERSION=1.3.0&EXCEPTIONS=XML&GUI=8"
-                    "&A3TKN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoib"
-                    "WFwc2VydmVyIiwibmJmIjoxNTcxMDQ0NTA1LCJleHAiOjE1NzEzOTAx"
-                    "MDUsImlhdCI6MTU3MTA0NDUwNX0.kmzjR5sLGe47rSUJgqPuZ5_"
-                    "ZK2wwx1eEfgePIkntwGE&"
-                    "SERVICE=WMS&REQUEST=GetMap&STYLES=&CRS=EPSG%3A32634"
-                    "&BBOX=569000,4790500,569500,4791000&WIDTH=3000&"
-                    "HEIGHT=3000"
+                    "https://ogc.geosrbija.rs/mapserv.ashx?LAYERS=layer_532&"
+                    "QUERYABLE=false&TRANSITIONEFFECT=resize&TRANSPARENT=TRUE&"
+                    "INFOFORMAT=text%2Fhtml&FORMAT=image%2Fpng&VERSION=1.3.0&"
+                    "EXCEPTIONS=XML&GUI=8&"
+                    "A3TKN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9."
+                    "eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxNTc3MDQ"
+                    "xMjE5LCJleHAiOjE1NzczODY4MTksImlhdCI6MTU3Nz"
+                    "A0MTIxOX0.233fXXt2K7mcUIwIHzF27gNdRF3yUJvWzi"
+                    "k8U2HHe5M"
+                    "&SERVICE=WMS&REQUEST=GetMap&STYLES=&CRS=EPSG%3A32634&"
+                    "BBOX=569000,4790500,569500,4791000&WIDTH=5120&HEIGHT=5120"
                     )
         self.assertEqual(url_test, self.gswms.url)
 
@@ -36,7 +49,7 @@ class TestGeoSrbijaWMS(unittest.TestCase):
                        'Accept-Encoding': 'gzip, deflate, br',
                        'Accept-Language': 'en-US,en;q=0.5',
                        'Connection': 'keep-alive',
-                       'Cookie': '_ga=GA1.2.122374505.1511963246; _gid=GA1.2.722972071.1571044509',
+                       'Cookie': '_ga=GA1.2.1690936736.1577041223; _gid=GA1.2.1579405596.1577041223',
                        'DNT': '1', 'Host': 'ogc.geosrbija.rs', 'Referer': 'https://a3.geosrbija.rs/',
                        'TE': 'Trailers',
                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0'}

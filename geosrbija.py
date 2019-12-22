@@ -23,6 +23,7 @@ import argparse
 
 from gssetup import verzija
 from gssetup import slojevi
+from gssql import db_status
 from gssql import sql_generator_mreze
 from gssql import sql_kvadrat_id
 from gssql import sql_merge_id
@@ -82,6 +83,8 @@ if __name__ == "__main__":
     # Pokretanje programa i ispis imena i verzije
     print(95*"=")
     print(f"GeoSrbija Downloader v{verzija}")
+    print(95*"-")
+    print(db_status)
     print(95*"-")
 
     if len(sys.argv) >= 2:
@@ -181,34 +184,3 @@ if __name__ == "__main__":
 
         print("Niste naveli nijedan komandni parametar.\n"
               "Za pomoć otkucajte 'python geosrbija.py -h'")
-
-
-"""
-# staX = 568500
-# endX = 573500
-# staY = 4785000
-# endY = 4787500
-
---------------------------------------------------------------------------------
-python geosrbija.py mreža 568500, 4785000, 573500, 4787500
-
-================================================================================
-GeoSrbija Downloader v2.0
---------------------------------------------------------------------------------
-Kreiranje mreže koordinatnih kvadrata sa parametrima:
- - px = 568500
- - py = 4785000
- - kx = 573500
- - ky = 4787500
- - d  = 500m
-Generisano je 50 kvadrata!
-
--------------------------------------------------------------------------------------------
-python geosrbija.py bbox of_2013_40cm, 569000, 4790500
-python geosrbija.py bbox test 569000, 4790500
-
-python geosrbija.py id gs_bbox_grid 23 parcele
-
-python geosrbija.py ml gs_bbox_grid 10 parcele
-python geosrbija.py ml gs_bbox_grid 10 objekti
-"""

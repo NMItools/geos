@@ -1,12 +1,14 @@
-(geo) PS D:\git\GeoSrbija\test\unit>
+======================================================================
+from gswms import GeoSrbijaWMS
+gs = GeoSrbijaWMS('parcele', 569000, 4790500)
 
-python gswms_test.py
-
+======================================================================
+(geo) PS D:\git\GeoSrbija\test\unit>python gswms_test.py
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
-
 OK
-
-(geo) PS D:\git\GeoSrbija>
-
-python test/unit/gswms_test.py
+======================================================================
+(geo) PS D:\git\GeoSrbija>python test/unit/gswms_test.py
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+OK

@@ -1,5 +1,3 @@
-import psycopg2
-
 # verzija
 verzija = 2.0
 
@@ -30,13 +28,18 @@ gs_slojevi = {
 
 slojevi = [sloj for sloj in gs_slojevi]
 
-# širina koordinatnog kvadrata u m
+# širina koordinatnog kvadrata u pixelima:
+# ortofoto
+# dw = 2048
+# dh = 2048
+
+# katastar
+dw = 5120
+dh = 5120
+
+# širina koordinatnog kvadrata u m:
 dx = 500
 dy = 500
-
-# širina koordinatnog kvadrata u pixelima
-dw = 3000
-dh = 3000
 
 # osnovni HTTP parametri za ortofoto
 of_base_url = "https://a3.geosrbija.rs/proxies/xWmsProxy.ashx?"
@@ -62,15 +65,15 @@ kn_base_url = "https://ogc.geosrbija.rs/mapserv.ashx?"
 
 A3TKN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9."
          "eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxN"
-         "TcxMDQ0NTA1LCJleHAiOjE1NzEzOTAxMDUsIml"
-         "hdCI6MTU3MTA0NDUwNX0.kmzjR5sLGe47rSUJg"
-         "qPuZ5_ZK2wwx1eEfgePIkntwGE")
+         "Tc3MDQxMjE5LCJleHAiOjE1NzczODY4MTksIml"
+         "hdCI6MTU3NzA0MTIxOX0.233fXXt2K7mcUIwIHz"
+         "F27gNdRF3yUJvWzik8U2HHe5M")
 
 kn_header = {'Accept': 'image/webp,*/*',
              'Accept-Encoding': 'gzip, deflate, br',
              'Accept-Language': 'en-US,en;q=0.5',
              'Connection': 'keep-alive',
-             'Cookie': '_ga=GA1.2.122374505.1511963246; _gid=GA1.2.722972071.1571044509',
+             'Cookie': '_ga=GA1.2.1690936736.1577041223; _gid=GA1.2.1579405596.1577041223',
              'DNT': '1',
              'Host': 'ogc.geosrbija.rs',
              'Referer': 'https://a3.geosrbija.rs/',
@@ -78,19 +81,3 @@ kn_header = {'Accept': 'image/webp,*/*',
              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; ' +
              'Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0'
              }
-
-# PostgreSQL konekcija - kućni server vs jkp "Naissus"
-# server = 'localhost'
-server = 'VERDI'
-baza = 'geosrbija'
-user = 'postgres'
-password = 'softdesk'
-table_name = 'gs_bbox_grid'
-
-connection = psycopg2.connect(
-    dbname=baza,
-    user=user,
-    host=server,
-    password=password
-    )
-cursor = connection.cursor()
