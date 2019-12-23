@@ -30,7 +30,7 @@ def requests_retry_session(
 
 def img_download(wmst):
     """
-    Preuzimanje PNG slike na osnovu definisanog GeoSrbijaWMS objekta
+    Preuzimanje PNG slike na osnovu definisanog GeoSWMS objekta
     """
     t0 = time.time()
     try:

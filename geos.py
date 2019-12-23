@@ -1,10 +1,10 @@
 # ==============================================================================
-# Preuzimanje podloga sa GeoSrbija portala https://a3.geosrbija.rs
+# Preuzimanje podloga sa GS portala
 # ------------------------------------------------------------------------------
 
 #     verzija:  2.0
 #     datum:    2019-OKTOBAR-12
-#     autor: Nebojša Pešić, dipl. građ. ing (nmiTools@gmail.com)
+#     autor: Nebojša Pešić, dipl. građ. ing
 
 #  preduslovi:
 #     Python 3.x (scoop reset python)
@@ -29,7 +29,7 @@ from gsdownload import img_download
 from gsfiles import gen_wld_file
 from gsfiles import gen_tab_file
 
-from gswms import GeoSrbijaWMS
+from gswms import GeoSWMS
 
 os.system('cls')
 
@@ -49,7 +49,7 @@ def mreža(args):
 
 def bbox(args):
     """Preuzimanje kvadrata na osnovu bbox koordinata"""
-    wmst = GeoSrbijaWMS(args.sloj, args.x, args.y)
+    wmst = GeoSWMS(args.sloj, args.x, args.y)
     print(f"Preuzimanje kvadrata sa BBOX = [{wmst}]")
     if img_download(wmst):
         gen_wld_file(wmst)
@@ -59,7 +59,7 @@ def bbox(args):
 def id(args):
     """Preuzimanje kvadrata na osnovu njegovog ID"""
     qid = sql_kvadrat_id(args.tabela, args.ID)
-    wmst = GeoSrbijaWMS(args.sloj, qid[0], qid[1])
+    wmst = GeoSWMS(args.sloj, qid[0], qid[1])
     print(f"Preuzimanje kvadrata ID = {args.ID} - [{wmst}]")
     if img_download(wmst):
         gen_wld_file(wmst)
@@ -72,7 +72,7 @@ def ml(args):
     c = 1
     for id in qmid:
         qid = sql_kvadrat_id(args.tabela, id)
-        wmst = GeoSrbijaWMS(args.sloj, qid[0], qid[1])
+        wmst = GeoSWMS(args.sloj, qid[0], qid[1])
         print(f"Preuzimanje ML = {args.MID} | {id} ({c}/{len(qmid)})")
         if img_download(wmst):
             gen_wld_file(wmst)
@@ -84,17 +84,17 @@ if __name__ == "__main__":
 
     # Pokretanje programa i ispis imena i verzije
     print(95*"=")
-    print(f"GeoSrbija Downloader v{verzija}")
+    print(f"GeoS Downloader v{verzija}")
     print(95*"-")
     print(db_status)
     print(95*"-")
 
     if len(sys.argv) >= 2:
         # top-level parser
-        parser = argparse.ArgumentParser(prog='GeoSrbija',
+        parser = argparse.ArgumentParser(prog='geos',
                                          description="Preuzimanje podloga sa "
-                                                     "GeoSrbija portala. "
-                                                     "\na3.geosrbija.org")
+                                                     "GeoS portala. "
+                                                     )
 
         subparsers = parser.add_subparsers()
 
@@ -134,7 +134,7 @@ if __name__ == "__main__":
                                                      " levog ugla.")
         par_bbox.add_argument('sloj',
                               choices=slojevi,
-                              help='tip sloja na GeoSrbija')
+                              help='tip sloja na GeoS')
         par_bbox.add_argument('x',
                               type=int,
                               help='donja leva X koordinata kvadrata')
@@ -158,7 +158,7 @@ if __name__ == "__main__":
                             help='ID kvadrata u mreži')
         par_id.add_argument('sloj',
                             choices=slojevi,
-                            help='tip sloja na GeoSrbija')
+                            help='tip sloja na GeoS')
         par_id.set_defaults(func=id)
 
         # --------------------------------------------------------------------
@@ -176,7 +176,7 @@ if __name__ == "__main__":
                             help='ID metakvadrata u mreži')
         par_ml.add_argument('sloj',
                             choices=slojevi,
-                            help='tip sloja na GeoSrbija')
+                            help='tip sloja na GeoS')
         par_ml.set_defaults(func=ml)
 
         args = parser.parse_args()

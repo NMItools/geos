@@ -1,6 +1,6 @@
 # ============================================================================
 # Generisanje mreže kvadrata u PostGIS bazi za organizovanje preuzimanja
-# Ortofoto podloga sa portala GeoSrbija https://a3.geosrbija.rs
+# Ortofoto podloga sa portala GeoS
 
 
 # Radi lakšeg upravljanja preuzetih podloga definisana je oblast u kojoj je
@@ -57,15 +57,15 @@ import psycopg2
 from psycopg2 import sql
 from datetime import datetime
 
-server = 'localhost'
-# server = 'VERDI'
+# server = 'localhost'
+server = 'VERDI'
 baza = 'geosrbija'
 user = 'postgres'
 password = 'softdesk'
 table_name = 'gs_bbox_grid'
 
 try:
-    # PostgreSQL konekcija - kućni server vs jkp "Naissus
+    # PostgreSQL konekcija
     connection = psycopg2.connect(
         dbname=baza,
         user=user,

@@ -13,8 +13,8 @@ from gssetup import dl_path
 from gssetup import gs_slojevi
 
 
-class GeoSrbijaWMS:
-    """Kreiranje WMS URL za GeoSrbija"""
+class GeoSWMS:
+    """Kreiranje WMS URL za GeoS"""
 
     def __init__(self, sloj, px, py, w=dw, h=dh, xm=dx, ym=dy):
         self.sloj = sloj
