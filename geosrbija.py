@@ -1,21 +1,19 @@
-"""
-==============================================================================
-Preuzimanje podloga sa GeoSrbija portala https://a3.geosrbija.rs
-------------------------------------------------------------------------------
+# ==============================================================================
+# Preuzimanje podloga sa GeoSrbija portala https://a3.geosrbija.rs
+# ------------------------------------------------------------------------------
 
-    verzija:  2.0
-    datum:    2019-OKTOBAR-12
-    autor: Nebojša Pešić, dipl. građ. ing (nmiTools@gmail.com)
+#     verzija:  2.0
+#     datum:    2019-OKTOBAR-12
+#     autor: Nebojša Pešić, dipl. građ. ing (nmiTools@gmail.com)
 
- preduslovi:
-    Python 3.x (scoop reset python)
-    pip install psycopg2
-    pip install requests
-    pip install clint
-    pip install M:/MEGAsync/Python/whl/GDAL-3.0.1-cp37-cp37m-win_amd64.whl
+#  preduslovi:
+#     Python 3.x (scoop reset python)
+#     pip install psycopg2
+#     pip install requests
+#     pip install clint
+#     pip install M:/MEGAsync/Python/whl/GDAL-3.0.1-cp37-cp37m-win_amd64.whl
 
-==============================================================================
-"""
+# ==============================================================================
 
 import sys
 import os
@@ -37,6 +35,7 @@ os.system('cls')
 
 
 def mreža(args):
+    """Kreiranje mreže koordinatnih kvadrata sa parametrima"""
     print(f"Kreiranje mreže koordinatnih kvadrata sa parametrima:")
     print(f" - px = {args.px}")
     print(f" - py = {args.py}")
@@ -49,14 +48,16 @@ def mreža(args):
 
 
 def bbox(args):
+    """Preuzimanje kvadrata na osnovu bbox koordinata"""
     wmst = GeoSrbijaWMS(args.sloj, args.x, args.y)
-    print(f"Preuzimanje bbox kvadrata [{wmst}]")
+    print(f"Preuzimanje kvadrata sa BBOX = [{wmst}]")
     if img_download(wmst):
         gen_wld_file(wmst)
         gen_tab_file(wmst)
 
 
 def id(args):
+    """Preuzimanje kvadrata na osnovu njegovog ID"""
     qid = sql_kvadrat_id(args.tabela, args.ID)
     wmst = GeoSrbijaWMS(args.sloj, qid[0], qid[1])
     print(f"Preuzimanje kvadrata ID = {args.ID} - [{wmst}]")
@@ -66,6 +67,7 @@ def id(args):
 
 
 def ml(args):
+    """Preuzimanje metakvadrata na osnovu njegovog MetaID"""
     qmid = sql_merge_id(args.tabela, args.MID)
     c = 1
     for id in qmid:
