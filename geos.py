@@ -185,4 +185,4 @@ if __name__ == "__main__":
     else:
 
         print("Niste naveli nijedan komandni parametar.\n"
-              "Za pomoć otkucajte 'python geosrbija.py -h'")
+              "Za pomoć otkucajte 'python geos.py -h'")
