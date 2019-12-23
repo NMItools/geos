@@ -1,8 +1,8 @@
 import unittest
-from gswms import GeoSrbijaWMS
+from gswms import GeoSWMS
 
 
-class TestGeoSrbijaWMS(unittest.TestCase):
+class TestGeoSWMS(unittest.TestCase):
     """ Test metoda GeoSrbijaWMS klase:
         - attributi (unos podataka)
         - URL (http)
@@ -14,7 +14,7 @@ class TestGeoSrbijaWMS(unittest.TestCase):
     """
 
     def setUp(self):
-        self.gswms = GeoSrbijaWMS('parcele', 569000, 4790500)
+        self.gswms = GeoSWMS('parcele', 569000, 4790500)
 
     def test_attributes(self):
         self.assertEqual('parcele', self.gswms.sloj)
