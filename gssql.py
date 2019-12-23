@@ -61,7 +61,7 @@ from datetime import datetime
 server = 'VERDI'
 baza = 'geosrbija'
 user = 'postgres'
-password = 'softdesk'
+password = ''
 table_name = 'gs_bbox_grid'
 
 try:
