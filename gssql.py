@@ -1,4 +1,3 @@
-"""
 # ============================================================================
 # Generisanje mreže kvadrata u PostGIS bazi za organizovanje preuzimanja
 # Ortofoto podloga sa portala GeoSrbija https://a3.geosrbija.rs
@@ -51,7 +50,7 @@
 # stay = 4763000
 # endy = 4814500
 # ============================================================================
-"""
+
 
 # import sys
 import psycopg2
