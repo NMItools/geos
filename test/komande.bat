@@ -34,20 +34,22 @@ REM sql_merge_id(table_name, 10)
 
 REM -------------------------------------------------------------------------------------------
 
-python geosrbija.py mreža 568500, 4785000, 573500, 4787500
+python geos.py mreža 568500, 4785000, 573500, 4787500
 
-python geosrbija.py bbox of_2013_40cm, 569000, 4790500
-python geosrbija.py bbox test 569000, 4790500
+python geos.py bbox of_2013_40cm, 569000, 4790500
+python geos.py bbox test 569000, 4790500
 
-python geosrbija.py id gs_bbox_grid 23 parcele
+python geos.py id gs_bbox_grid 23 parcele
 
-python geosrbija.py ml gs_bbox_grid 10 parcele
-python geosrbija.py ml gs_bbox_grid 10 objekti
-python geosrbija.py ml gs_bbox_grid 81 parcele_jug
-python geosrbija.py ml gs_bbox_grid 82 parcele_jug
+python geos.py ml gs_bbox_grid 10 parcele
+python geos.py ml gs_bbox_grid 10 objekti
+python geos.py ml gs_bbox_grid 81 parcele_jug
+python geos.py ml gs_bbox_grid 82 parcele_jug
 
 REM trg vojske i dr petra vucinica
-python geosrbija.py bbox of_2013_10cm, 572000, 4796500
-python geosrbija.py bbox of_2013_40cm, 572000, 4796500
-python geosrbija.py id gs_bbox_grid 1349 parcele
-python geosrbija.py ml gs_bbox_grid 48 parcele
+python geos.py bbox of_2013_10cm, 572000, 4796500
+python geos.py bbox of_2013_40cm, 572000, 4796500
+
+python geos.py id gs_bbox_grid 1349 parcele
+
+python geos.py ml gs_bbox_grid 48 parcele
