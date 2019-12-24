@@ -34,6 +34,8 @@ REM sql_merge_id(table_name, 10)
 
 REM -------------------------------------------------------------------------------------------
 
+c:\pve\geo\Scripts\activate.ps1
+
 python geos.py mreža 568500, 4785000, 573500, 4787500
 
 python geos.py bbox of_2013_40cm, 569000, 4790500
