@@ -5,7 +5,7 @@ REM # staY = 4785000
 REM # endY = 4787500
 
 REM ================================================================================
-REM GeoSrbija Downloader v2.0
+REM GeoS Downloader v2.0
 REM --------------------------------------------------------------------------------
 REM Kreiranje mreže koordinatnih kvadrata sa parametrima:
  REM - px = 568500
