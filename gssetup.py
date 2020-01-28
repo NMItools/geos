@@ -63,17 +63,13 @@ of_header = {'Accept': 'image/webp,*/*',
 # osnovni HTTP parametri za Katastar Nepokretnosti:
 kn_base_url = "https://ogc.geosrbija.rs/mapserv.ashx?"
 
-A3TKN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9."
-         "eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxN"
-         "Tc3MDQxMjE5LCJleHAiOjE1NzczODY4MTksIml"
-         "hdCI6MTU3NzA0MTIxOX0.233fXXt2K7mcUIwIHz"
-         "F27gNdRF3yUJvWzik8U2HHe5M")
+A3TKN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxNTgwMjI2Mzc0LCJleHAiOjE1ODA1NzE5NzQsImlhdCI6MTU4MDIyNjM3NH0.8CNOIUFYNqIoIbnPj66xJpvQ1si5kWr73RRvDWRqHWM")
 
 kn_header = {'Accept': 'image/webp,*/*',
              'Accept-Encoding': 'gzip, deflate, br',
              'Accept-Language': 'en-US,en;q=0.5',
              'Connection': 'keep-alive',
-             'Cookie': '_ga=GA1.2.1690936736.1577041223; _gid=GA1.2.1579405596.1577041223',
+             'Cookie': '_ga=GA1.2.853214968.1516814617; _gid=GA1.2.1885245428.1580226397; _gat=1',
              'DNT': '1',
              'Host': 'ogc.geosrbija.rs',
              'Referer': 'https://a3.geosrbija.rs/',
