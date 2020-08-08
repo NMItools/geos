@@ -55,3 +55,10 @@ python geos.py bbox of_2013_40cm, 572000, 4796500
 python geos.py id gs_bbox_grid 1349 parcele
 
 python geos.py ml gs_bbox_grid 48 parcele
+
+rem dolac njive
+python geos.py id gs_bbox_grid 3278 parcele_jug
+python geos.py id gs_bbox_grid 3279 parcele_jug
+python geos.py id gs_bbox_grid 3318 parcele_jug
+python geos.py id gs_bbox_grid 3319 parcele_jug
+

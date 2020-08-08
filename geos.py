@@ -94,7 +94,7 @@ if __name__ == "__main__":
         parser = argparse.ArgumentParser(prog='geos',
                                          description="Preuzimanje podloga sa "
                                                      "GeoS portala. "
-                                                     )
+                                        )
 
         subparsers = parser.add_subparsers()
 

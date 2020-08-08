@@ -36,6 +36,7 @@ def img_download(wmst):
     try:
         # otvaranje WMS linka
         print('Slanje zahteva za preuzimanjem...')
+        print(wmst.url)
         r = requests_retry_session().get(
             wmst.url,
             headers=wmst.header,

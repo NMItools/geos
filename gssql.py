@@ -58,7 +58,7 @@ from psycopg2 import sql
 from datetime import datetime
 
 # server = 'localhost'
-server = 'VERDI'
+server = 'localhost'
 baza = 'geosrbija'
 user = 'postgres'
 password = ''

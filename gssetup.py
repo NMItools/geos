@@ -63,17 +63,17 @@ of_header = {'Accept': 'image/webp,*/*',
 # osnovni HTTP parametri za Katastar Nepokretnosti:
 kn_base_url = "https://ogc.geosrbija.rs/mapserv.ashx?"
 
-A3TKN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxNTgwMjI2Mzc0LCJleHAiOjE1ODA1NzE5NzQsImlhdCI6MTU4MDIyNjM3NH0.8CNOIUFYNqIoIbnPj66xJpvQ1si5kWr73RRvDWRqHWM")
+A3TKN = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoibWFwc2VydmVyIiwibmJmIjoxNTk2OTI2OTkyLCJleHAiOjE1OTcyNzI1OTIsImlhdCI6MTU5NjkyNjk5Mn0.97ktnvGgHySWwykv7aikwqXyCvouFKqG8Nnp4ZDLUCQ")
 
 kn_header = {'Accept': 'image/webp,*/*',
              'Accept-Encoding': 'gzip, deflate, br',
              'Accept-Language': 'en-US,en;q=0.5',
              'Connection': 'keep-alive',
-             'Cookie': '_ga=GA1.2.853214968.1516814617; _gid=GA1.2.1885245428.1580226397; _gat=1',
+             'Cookie': '_ga=GA1.2.951720339.1596926996; _gid=GA1.2.137516005.1596926996; _gat=1',
              'DNT': '1',
              'Host': 'ogc.geosrbija.rs',
              'Referer': 'https://a3.geosrbija.rs/',
              'TE': 'Trailers',
              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; ' +
-             'Win64; x64; rv:69.0) Gecko/20100101 Firefox/69.0'
+             'Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0'
              }
